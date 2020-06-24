@@ -18,6 +18,8 @@ class Url(Resource):
 
         urlet = ''.join(secrets.choice(string.ascii_letters + string.digits) for _ in range(7))
 
+        while UrlModel.find_by_urlet(urlet):
+            urlet = ''.join(secrets.choice(string.ascii_letters + string.digits) for _ in range(7))
         url = UrlModel(data['url'], urlet)
 
         try:
