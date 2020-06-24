@@ -2,7 +2,7 @@ from flask import Flask
 from flask_restful import Api
 
 from db import db
-from resources.url import Url
+from resources.url import Url, Urlet
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
@@ -19,6 +19,7 @@ def create_tables():
 
 
 api.add_resource(Url, "/url")
+api.add_resource(Urlet, '/<string:urlet>')
 
 if __name__ == '__main__':
     db.init_app(app)

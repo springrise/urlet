@@ -15,7 +15,7 @@ class UrlModel(db.Model):
     def json(self):
         return {
             'url': self.url,
-            'urlet': self.urlet
+            'urlet': 'http://127.0.0.1:5000/' + self.urlet
         }
 
     @classmethod
