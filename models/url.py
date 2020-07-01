@@ -7,15 +7,19 @@ class UrlModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String)
     urlet = db.Column(db.String)
+    count = db.Column(db.Integer)
 
-    def __init__(self, url, urlet):
+
+    def __init__(self, url, urlet, count):
         self.url = url
         self.urlet = urlet
+        self.count = count
 
     def json(self):
         return {
             'url': self.url,
-            'urlet': 'http://127.0.0.1:5000/' + self.urlet
+            'urlet': 'http://127.0.0.1:5000/' + self.urlet,
+            'count': self.count
         }
 
     @classmethod
